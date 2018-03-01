@@ -1,4 +1,4 @@
-all: build archive doc
+all: build doc doczip
 
 List: build
 
