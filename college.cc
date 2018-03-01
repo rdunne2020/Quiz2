@@ -4,6 +4,14 @@
 //CS 2401
 //10/8/2015
 //********************
+
+/**
+ *@file college.cc
+ *This file allows the pointers to move around the list and manipulate data, implementation of college.h
+ *@author Matthew Aberegg
+ *@date 10/8/2015
+*/
+
 #include "college.h"
 #include<cstdlib>
 #include<iostream>
@@ -43,7 +51,11 @@ College::College(const College& other){
 		}
 	}
 }
-
+/**
+ *@brief this is an overloaded assignemnt operator, it copies a variable then removes the original
+ *@param a College object other passed by reference
+ *@return a College object
+*/
 College& College::operator =(const College& other){
 	if(this == &other){
 		return * this;
@@ -90,11 +102,11 @@ void College::add(course& c){
 		delete previous;
 	} else if(head -> data() < c){
 		cursor = head;
-		while (cursor != NULL && cursor -> data() <= c){ 
+		while (cursor != NULL && cursor -> data() <= c){
 			previous = cursor;
 			cursor = cursor-> link();
-		}	
-		if (cursor == NULL){ 
+		}
+		if (cursor == NULL){
 			cursor = new node (c);
 			cursor -> set_link(NULL);
 			previous -> set_link(cursor);
@@ -108,7 +120,7 @@ void College::add(course& c){
 }
 
 void College::remove(std::string coursename){
-	node * previous;	
+	node * previous;
 	node * cursor;
 	if(coursename == head->data().get_course_number()){
 		cursor = head;
@@ -165,7 +177,7 @@ double College::gpa(){
 	ptr = ptr->link();
 	}
 	return (sum / hours());
-} 
+}
 
 void College::save(std::ostream& outs){
 	node * ptr;
@@ -193,11 +205,3 @@ void College::load(std::istream& ins){
 		ptr -> set_link (NULL);
   }
 }
-
-
-
-
-
-
-
-

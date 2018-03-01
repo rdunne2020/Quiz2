@@ -3,6 +3,14 @@
 	course.
 		John Dolan		School of EECS		Summer2013
 **************************************************************************/
+
+/**
+ *@file course.cc
+ *This file is implementing course.h, and it describes a college course.
+ *@author Matthew Aberegg
+ *@date 10/8/2015
+*/
+
 #include "course.h"
 #include<cstdlib>
 #include<iostream>
@@ -13,7 +21,11 @@ using namespace std;
 course::course(){
     hours = 0.0;
 }
-
+/**
+*@brief this is an input function for inputting the course
+*@param an istream ins passed by reference
+*@return N/A
+*/
 void course::input(std::istream& ins){
     if(ins == cin){
 	cout<<"Course Number: ";
@@ -60,11 +72,11 @@ double course::get_number_grade()const{
     if(grade == "B") return 3.0;
     if(grade == "B-") return 2.667;
     if(grade == "C+") return 2.333;
-    if(grade == "C") return 2.0; 
+    if(grade == "C") return 2.0;
     if(grade == "C-") return 1.667;
-    if(grade == "D+") return 1.333; 
+    if(grade == "D+") return 1.333;
     if(grade == "D") return 1.0;
-    if(grade == "D-") return 0.667; 
+    if(grade == "D-") return 0.667;
     if(grade == "F") return 0.0;
     else return 0;
 }
@@ -79,7 +91,11 @@ istream& operator >>(istream& ins, course& c){
     c.input(ins);
     return ins;
 }
-
+/**
+*@brief this is an overloaded operator that allows the user to use the << operator to output things
+*@param an ostream outs passed by reference, and a constant course object c passed by reference
+*@return an ostream
+*/
 ostream& operator <<(ostream& outs, const course& c){
     c.output(outs);
     return outs;

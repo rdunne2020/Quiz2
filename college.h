@@ -5,6 +5,13 @@
 //10/8/2015
 //********************
 
+/**
+ *@file college.h
+ *This file is the header file for the pointer manipulation and constructors
+ *@author Matthew Aberegg
+ *@date 10/8/2015
+*/
+
 #include <iostream>
 #include <fstream>
 #include <string>
